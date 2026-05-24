@@ -8,7 +8,7 @@ function getComputerChoice() {
 
 	if ( rng < 3 ) {
 		return computerChoice = "rock";
-	} else if ( rng < 6 ) {
+	} else if ( rng < 6 && rng >= 3 ) {
 		return computerChoice = "paper";
 	} else {
 		return computerChoice = "scissors";
@@ -38,12 +38,14 @@ function playRound(computerSelection, humanSelection) {
 		console.log("it's a tie!");
 		return;
 	} else {
-		let winMessage = `winner! ${humanSelection} beats ${computerSelection}`
+		let winMessage = `winner! ${humanSelection} beats ${computerSelection}`;
+		console.log(winMessage);
 
 		return humanScore + 1;
 	}
 }
 
-console.log(getComputerChoice());
-getHumanChoice();
-console.log(humanChoice);
+playRound(getComputerChoice(), getHumanChoice());
+
+console.log("computer: " + computerChoice);
+
