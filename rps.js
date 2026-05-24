@@ -1,8 +1,13 @@
+let humanChoice = "";
+let humanScore = 0;
+let computerScore = 0;
+
 console.log(getComputerChoice());
+getHumanChoice();
+console.log(humanChoice);
 
 function getComputerChoice() {
 	let rng = Math.floor(Math.random() * 10);
-	console.log(rng);
 	let choice = ""
 
 	if ( rng < 3 ) {
@@ -15,5 +20,5 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-
+	return humanChoice = prompt("rock, paper, or scissors?");
 }
