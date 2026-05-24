@@ -1,9 +1,9 @@
 function getComputerChoice() {
-	let rng = Math.floor(Math.random() * 10);
+	let rng = Math.floor(Math.random() * 3);
 
-	if ( rng < 3 ) {
+	if ( rng == 0 ) {
 		return "rock";
-	} else if ( rng < 6 && rng >= 3 ) {
+	} else if ( rng == 1 ) {
 		return "paper";
 	} else {
 		return "scissors";
@@ -25,11 +25,11 @@ function playGame() {
 				humanSelection == "scissors" && computerSelection == "rock" 
 			) {
 
-			let loseMessage = `loser! ${computerSelection} beats ${humanSelection} :D`;
+			let loseMessage = `loser! ${computerSelection} beats ${humanSelection}`;
 			console.log(loseMessage);
 
 			return computerScore++;
-		} else if ( humanSelection == computerSelection ) {
+		} else if ( humanSelection === computerSelection ) {
 			console.log("it's a tie!");
 			return;
 		} else {
@@ -40,7 +40,7 @@ function playGame() {
 		}
 	}
 
-	for ( i = 1; i <= 5; i++) {
+	for ( i = 1; i <= 5 || computerScore == humanScore; i++) {
 		playRound(getComputerChoice(), getHumanChoice());
 		console.log(`computer: ${computerScore}, human: ${humanScore}`)
 	}
